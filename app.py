@@ -12,6 +12,7 @@ from sklearn.metrics import (
 st.set_page_config(page_title="Breast Cancer Classifier", page_icon="🧬", layout="wide")
 ROOT = Path(__file__).parent
 MODEL_DIR = ROOT / "model"
+DEFAULT_FILE = ROOT / "test_data.csv"
 
 MODEL_FILES = {
     "Logistic Regression": "logistic_regression.joblib",
@@ -27,15 +28,20 @@ st.title("Breast Cancer Classification Dashboard")
 st.caption("Upload a labeled test CSV, select a saved classifier, and inspect its evaluation.")
 st.info("This app evaluates saved models only. It does not retrain models on uploaded test data.")
 
-uploaded = st.file_uploader("Upload test data (CSV)", type=["csv"])
-if uploaded is None:
-    st.write("Start by uploading `test_data.csv` from the project repository.")
-    st.stop()
+use_default = st.checkbox("Use default test data file")
+uploaded = st.file_uploader("Upload test data (CSV)", type=["csv"], disabled=use_default)
 
-try:
-    data = pd.read_csv(uploaded)
-except Exception as exc:
-    st.error(f"Could not read the CSV: {exc}")
+if use_default and DEFAULT_FILE.exists():
+    data = pd.read_csv(DEFAULT_FILE)
+elif uploaded is not None:
+    st.success(f"Using uploaded file: `{uploaded.name}`")
+    try:
+        data = pd.read_csv(uploaded)
+    except Exception as exc:
+        st.error(f"Could not read the CSV: {exc}")
+        st.stop()
+else:
+    st.write("Start by uploading test data or use the default test data (test_data.csv) from the project repository.")
     st.stop()
 
 if TARGET not in data.columns:
