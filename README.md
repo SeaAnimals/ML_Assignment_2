@@ -76,6 +76,6 @@ python trainer.py
 streamlit run app.py
 ```
 
-## Streamlit Community Cloud deployment
+## Streamlit App
 
 - upload a CSV (or tick `Use default test data file` to use test_data.csv in the repository) and pick a model from the dropdown.
