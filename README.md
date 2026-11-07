@@ -52,20 +52,20 @@ All five models are trained on the same training partition and evaluated on the 
 ```text
 ML_Assignment_2_Project/
 ├── README.md
-├── app.py
+├── app.py : Streamlit app
 ├── requirements.txt
-├── test_data.csv
-├── trainer.py
+├── test_data.csv : test data with 115 rows
+├── trainer.py : Trains and creates 5 models and save them in `model`, creates `test_data.csv`
 ├── data/
-│   └── breast_cancer_dataset.csv
-├── model/
+│   └── breast_cancer_dataset.csv : dataset from UCI
+├── model/ : Saved 5 models
 │   ├── logistic_regression.joblib
 │   ├── decision_tree.joblib
 │   ├── knearest_neighbors.joblib
 │   ├── gaussian_naive_bayes.joblib
 │   └── support_vector_machine.joblib
 └── results/
-    └── model_comparison.csv
+    └── model_comparison.csv : Comparison metrics for 5 models
 ```
 
 ## Run locally
