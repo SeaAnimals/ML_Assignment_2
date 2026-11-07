@@ -1,6 +1,6 @@
 # Breast Cancer Classification — ML Assignment 2
 - GitHub repository: https://github.com/SeaAnimals/ML_Assignment_2
-- Live app: https://steel-plate-fault-classifier-gz6crdafengjsxp8qyzmx4.streamlit.app/
+- Live app: https://mlassignment2-bguz9n9lpxttw32r3n673k.streamlit.app/
 
 ## a. Problem statement
 Build and compare five supervised classification algorithms to predict whether a breast-mass sample is **malignant** or **benign** from numeric measurements computed from a digitized fine-needle aspirate (FNA) image. The positive class is defined as `malignant`.
